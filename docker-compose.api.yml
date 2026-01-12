@@ -1,0 +1,15 @@
+services:
+  api:
+    build: .
+    container_name: s3-api
+    ports:
+      - "3000:3000"
+    environment:
+      VAULT_ADDR: http://vault:8200
+      VAULT_TOKEN: myroot
+    networks:
+      - secure-net
+
+networks:
+  secure-net:
+    external: true
